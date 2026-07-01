@@ -3,75 +3,89 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initialscale=1.0">
-<title>Simple Dynamic Calculator</title>
-<style>
-body { font-family: Arial, sans-serif; padding: 40px;
-background-color: #f4f7f6; display: flex; justify-content: center; }
-.calc-box { background: white; padding: 30px; border-radius:
-8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 320px; text-align:
-center; }
-h2 { color: #2c3e50; margin-bottom: 20px; }
-input, select, button { width: 100%; padding: 10px; margin:
-10px 0; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem;
-box-sizing: border-box; }
-button { background-color: #3498db; color: white; border:
-none; font-weight: bold; cursor: pointer; transition: 0.2s; }
-button:hover { background-color: #2980b9; }
-.result-display { margin-top: 20px; padding: 15px; backgroundcolor: #ecf0f1; border-radius: 4px; font-size: 1.2rem; font-weight:
-bold; color: #2c3e50; min-height: 50px; display: flex; align-items:
-center; justify-content: center; }
-</style>
+<title>Module 2 Summative: E-Commerce Product Page</title>
 </head>
 <body>
-<div class="calc-box">
-<h2>JS Calculator</h2>
-<input type="number" id="num1" placeholder="Enter first
-number">
-<select id="operator">
-<option value="add">Add (+)</option>
-<option value="subtract">Subtract (-)</option>
-<option value="multiply">Multiply (&times;)</option>
-<option value="divide">Divide (&divide;)</option>
-</select>
-<input type="number" id="num2" placeholder="Enter second
-number">
-<button id="calc-btn">Calculate</button>
-<div class="result-display" id="result-output">Result will
-appear here</div>
-</div>
-<script src="script.js"></script>
+<header>
+<h1>AeroTech Gadgets</h1>
+<nav>
+<a href="#product-details">Product Details</a> |
+<a href="#specs">Specifications</a> |
+<a href="#contact">Support</a>
+</nav>
+</header>
+<hr>
+<main>
+<section id="product-details">
+<article>
+<h2>Apex Pro Noise-Cancelling Headphones</h2>
+<img src="https://images.unsplash.com/photo1505740420928-5e560c06d30e?w=500" alt="Apex Pro Headphones sleek black
+design" width="400">
+<h3>Product Description</h3>
+<p>
+Experience pure, uninterrupted audio with the Apex
+Pro Wireless Headphones.
+Engineered with industry-leading hybrid active
+noise cancellation, these headphones
+isolate you from ambient noise while delivering
+crisp highs and deep, resonant bass.
+Perfect for students, professionals, and
+audiophiles alike.
+</p>
+</article>
+</section>
+<section id="features">
+<h3>Key Features</h3>
+<ul>
+<li><strong>40-Hour Battery Life:</strong> Premium
+playback time with ultra-fast USB-C charging.</li>
+<li><strong>Hybrid ANC:</strong> Advanced noisecancelling technology with ambient transparency mode.</li>
+<li><strong>Ergonomic Build:</strong> Memory-foam
+earcups designed for all-day comfort.</li>
+<li><strong>Smart Touch Controls:</strong> Manage your
+music and calls with simple gestures on the earcup.</li>
+</ul>
+</section>
+<section id="specs">
+<h3>Pricing & Models</h3>
+<table border="1" cellpadding="8" cellspacing="0">
+<thead>
+<tr>
+<th>Model Edition</th>
+<th>Color Choices</th>
+<th>Warranty Included</th>
+<th>Price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Standard Edition</td>
+<td>Matte Black</td>
+<td>1 Year</td>
+<td>$149.99</td>
+</tr>
+<tr>
+<td>Pro Edition</td>
+<td>Silver / Charcoal</td>
+<td>2 Years</td>
+<td>$199.99</td>
+</tr>
+<tr>
+<td>Limited Studio Edition</td>
+<td>Champagne Gold</td>
+<td>3 Years</td>
+<td>$249.99</td>
+</tr>
+</tbody>
+</table>
+</section>
+</main>
+<hr>
+<footer id="contact">
+<p>Contact Support: <a
+href="mailto:support@aerotechgadgets.com">support@aerotechgadgets.com<
+/a></p>
+<p>&copy; 2026 AeroTech Gadgets. All rights reserved.</p>
+</footer>
 </body>
 </html>
-const calculatorOperations = {
-add: function(a, b) { return a + b; },
-subtract: function(a, b) { return a - b; },
-multiply: function(a, b) { return a * b; },
-divide: function(a, b) {
-return b === 0 ? "Error (Divide by 0)" : a / b;
-}
-};
-const calculateButton = document.getElementById("calc-btn");
-const resultOutput = document.getElementById("result-output");
-function performCalculation() {
-const number1 = parseFloat(document.getElementById("num1").value);
-const number2 = parseFloat(document.getElementById("num2").value);
-const selectedOp = document.getElementById("operator").value;
-if (isNaN(number1) || !isNaN(number2) === false) {
-resultOutput.textContent = "Please enter valid numbers!";
-resultOutput.style.color = "#e74c3c";
-return;
-}
-let finalResult;
-if (selectedOp === "add") {
-finalResult = calculatorOperations.add(number1, number2);
-} else if (selectedOp === "subtract") {
-finalResult = calculatorOperations.subtract(number1, number2);
-} else if (selectedOp === "multiply") {
-finalResult = calculatorOperations.multiply(number1, number2);
-} else if (selectedOp === "divide") {
-finalResult = calculatorOperations.divide(number1, number2);
-}
-resultOutput.textContent = `Result = ${finalResult}`;
-resultOutput.style.color = "#27ae60";
-}
-calculateButton.addEventListener("click", performCalculation);
